@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ЛАб_Веб1</title>
+    <style>
+        body{
+            background: #406343;
+            color: #F3F0D7;
+            padding: 0;
+            margin: 0;
+        }
+        .rectangle{
+            background-color: #F3F0D7;
+            color: #3D0000;
+            font-size: 18px;
+            position: center;
+            font-family: fantasy;
+        }
+        .rectangle td{
+            font-style: italic;
+        }
+        .heading{
+            font-size: 25px;
+        }
+        #circleBorder{
+            padding-top: 6%;
+            padding-bottom: 6%;
+            border: 6px solid #444941;
+            border-radius: 10px;
+            height: 300px;
+        }
+        #circleBorder td{
+            height: 75px;
+            padding-left: 5%;
+            padding-right: 5%;
+        }
+        img{
+            border-radius: 10px;
+            border: 6px solid #444941;
+        }
+    </style>
+</head>
+<body>
+<table height="100%" width="100%" >
+    <tr class="rectangle heading">
+        <th colspan="2">Лисунов Артём, гр. P3232<br>Вариант 32008</th>
+    </tr>
+    <tr>
+        <td width="50%" align="center">
+            <form action="handler.php" method="get">
+                <table id="circleBorder" class="rectangle">
+                    <tr>
+                        <td>
+                            Выберите X:
+                            <button type="submit" name="xCoordinate" value="-3" onclick="validateY();">-3</button>
+                            <button type="submit" name="xCoordinate" value="-2" onclick="validateY();">-2</button>
+                            <button type="submit" name="xCoordinate" value="-1" onclick="validateY();">-1</button>
+                            <button type="submit" name="xCoordinate" value="0" onclick="validateY();">0</button>
+                            <button type="submit" name="xCoordinate" value="1" onclick="validateY();">1</button>
+                            <button type="submit" name="xCoordinate" value="2" onclick="validateY();">2</button>
+                            <button type="submit" name="xCoordinate" value="3" onclick="validateY();">3</button>
+                            <button type="submit" name="xCoordinate" value="4" onclick="validateY();">4</button>
+                            <button type="submit" name="xCoordinate" value="5" onclick="validateY();">5</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Введите Y:
+                            <input type="text" placeholder="(-5...3)"  name="yCoordinate" id="yCoordinate" maxlength="5">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Выберите R:
+                            <input name="radius" type="radio" value="1">1
+                            <input name="radius" type="radio" value="1.5">1.5
+                            <input name="radius" type="radio" value="2">2
+                            <input name="radius" type="radio" value="2.5">2.5
+                            <input name="radius" type="radio" value="3">3
+
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </td>
+        <td width="50%">
+            <img src="areas.png" width="80%">
+        </td>
+    </tr>
+</table>
+<script>
+    function validateY() {
+        let y = document.getElementById("select_y");
+
+        if (isNaN(y.value)) {
+            event.preventDefault();
+            alert("Type a float number");
+        } else if (parseFloat(y.value) <= -5 || parseFloat(y.value) >= 3) {
+            event.preventDefault();
+            alert("Type a number inside of (-5; 3)");
+        }
+    }
+</script>
+</body>
+</html>
